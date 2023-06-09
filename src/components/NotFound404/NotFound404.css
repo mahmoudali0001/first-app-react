@@ -1,0 +1,15 @@
+.NotFound404 {
+  text-align: center;
+}
+
+.NotFound404 button {
+  background-color: #4caf50;
+  padding: 10px 20px;
+  border-radius: 3px;
+  font-size: 20px;
+  border: none;
+}
+
+.NotFound404 button a {
+  color: white;
+}

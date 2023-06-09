@@ -5,8 +5,13 @@ import { Route, NavLink, Switch, Redirect } from "react-router-dom";
 import classes from "./Blog.css";
 import Posts from "./Posts/Posts";
 import NewPost from "./NewPost/NewPost";
+import NotFound404 from "../../components/NotFound404/NotFound404";
 
 class Blog extends Component {
+  state = {
+    auth: false,
+  };
+
   render() {
     return (
       <div className={classes.Blog}>
@@ -34,9 +39,14 @@ class Blog extends Component {
           </nav>
         </header>
         <Switch>
-          <Route path="/new-post" component={NewPost} />
+          {this.state.auth ? (
+            <Route path="/new-post" component={NewPost} />
+          ) : null}
           <Route path="/posts" component={Posts} />
-          <Redirect from="/" to="/posts" />
+
+          <Route component={NotFound404} />
+
+          {/* <Redirect from="/" to="/posts" /> */}
         </Switch>
       </div>
     );
